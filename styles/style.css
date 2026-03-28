@@ -1,0 +1,498 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    /* Color scheme inspired by the second image */
+    --clr-yellow: #fcd535;
+    /* Bright yellow accent */
+    --clr-yellow-hover: #e8c222;
+    --clr-dark: #111111;
+    /* Deep black/dark gray for hero */
+    --clr-darker: #0a0a0a;
+    --clr-white: #ffffff;
+    --clr-bg-light: #fdfdfd;
+    /* Main background */
+    --clr-card-bg: #f5f5f5;
+    /* Light gray for cards to stand out on white */
+
+    --text-dark: #1f2937;
+    --text-light: #ffffff;
+    --text-muted: #6b7280;
+
+    --font-main: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--clr-bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Navbar exactly like Image 1 (White background, dark text) */
+.header {
+    background-color: var(--clr-white);
+    padding: 24px 0;
+    width: 100%;
+    border-bottom: 1px solid #eaeaea;
+    /* Optional slight separation */
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--clr-yellow-hover);
+}
+
+.mobile-arrow,
+.mobile-socials {
+    display: none;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.mobile-menu-btn .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-dark);
+    transition: 0.3s;
+}
+
+/* Hero Section (Mimicking Image 1 layout, Image 2 dark aesthetics) */
+.hero {
+    position: relative;
+    padding: 140px 0;
+    /* Sleek dark gradient background instead of image */
+    background: linear-gradient(135deg, var(--clr-darker) 0%, #2a2a2a 100%);
+    color: var(--text-light);
+    text-align: center;
+}
+
+/* Subtle pattern overlay to make it look "blended" and professional */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.05;
+    background-image: radial-gradient(var(--clr-white) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--clr-yellow);
+    /* Yellow accent from image 2 */
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.title {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--text-light);
+    margin-bottom: 40px;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 16px 36px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.btn-primary {
+    background-color: var(--clr-yellow);
+    color: var(--text-dark);
+}
+
+.btn-primary:hover {
+    background-color: var(--clr-yellow-hover);
+    transform: translateY(-2px);
+}
+
+/* About Section */
+.about {
+    padding: 100px 0;
+    background-color: var(--clr-bg-light);
+}
+
+.about-container {
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+}
+
+.about-left {
+    flex: 1.2;
+}
+
+.about-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-top: 50px;
+}
+
+.section-tag {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.section-tag .line {
+    width: 60px;
+    height: 2px;
+    background-color: var(--clr-yellow);
+}
+
+.about-left h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 40px;
+    letter-spacing: -1px;
+    line-height: 1.1;
+}
+
+.about-text p {
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--clr-dark);
+    line-height: 0.9;
+    margin-bottom: 12px;
+    letter-spacing: -2px;
+}
+
+.stat-label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+/* Animations */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.section-animate {
+    opacity: 0;
+}
+
+.section-animate.active.slide-up {
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.section-animate.active.slide-left {
+    animation: slideLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Features Section */
+.features {
+    padding: 100px 0;
+    background-color: var(--clr-white);
+}
+
+.features-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 60px;
+    letter-spacing: -1px;
+    line-height: 1.1;
+}
+
+.features-grid {
+    display: flex;
+    gap: 30px;
+}
+
+.feature-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    /* Space between card and bottom text */
+}
+
+/* Cards (Wireframe shows side-by-side flex layout for icon and text inside a gray card) */
+.card {
+    background-color: #f9f8f6;
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+    min-height: 200px;
+    /* Equalizing heights */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Adding a subtle left yellow border on hover for polish */
+    border-left: 4px solid transparent;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid var(--clr-yellow);
+}
+
+.icon-wrapper {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    /* Using dark icon scheme with yellow accents */
+    background-color: rgba(252, 213, 53, 0.15);
+    color: var(--clr-yellow);
+}
+
+/* Wait, wireframe icon is just a gray/black outline. Let's make it dark with yellow stroke! or just dark */
+.icon-wrapper svg {
+    color: var(--clr-yellow);
+    transition: color 0.3s ease;
+}
+
+.card:hover .icon-wrapper svg {
+    color: var(--clr-dark);
+}
+
+.card-text {
+    flex-grow: 1;
+}
+
+.card-text h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-dark);
+}
+
+.card-text p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.bottom-text {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    padding: 0 10px;
+    /* Slightly inset like the wireframe visually */
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .about-container {
+        flex-direction: column;
+        gap: 50px;
+    }
+    
+    .about-left h2 {
+        font-size: 2.5rem;
+    }
+    
+    .about-right {
+        padding-top: 0;
+        gap: 30px;
+    }
+    
+    .stat-number {
+        font-size: 3rem;
+    }
+
+    .features-title {
+        font-size: 2.5rem;
+    }
+
+    .features-grid {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .title {
+        font-size: 3rem;
+    }
+
+    .hero {
+        padding: 100px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--clr-white);
+        padding: 100px 40px 60px 40px;
+        z-index: 998;
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+
+    .nav-link {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: var(--text-dark);
+        border-bottom: 1px solid transparent;
+    }
+
+    .mobile-arrow {
+        display: inline-block;
+        font-size: 2rem;
+        font-weight: 300;
+        color: var(--text-dark);
+    }
+
+    .mobile-socials {
+        margin-top: 150px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .mobile-socials a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 400;
+        transition: color 0.3s ease;
+    }
+
+    .mobile-socials a:hover {
+        color: var(--text-dark);
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+        position: relative;
+        z-index: 999;
+    }
+
+    .logo {
+        position: relative;
+        z-index: 999;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+}
