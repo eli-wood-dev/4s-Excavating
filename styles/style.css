@@ -179,10 +179,132 @@ body {
     transform: translateY(-2px);
 }
 
+/* About Section */
+.about {
+    padding: 100px 0;
+    background-color: var(--clr-bg-light);
+}
+
+.about-container {
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+}
+
+.about-left {
+    flex: 1.2;
+}
+
+.about-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-top: 50px;
+}
+
+.section-tag {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.section-tag .line {
+    width: 60px;
+    height: 2px;
+    background-color: var(--clr-yellow);
+}
+
+.about-left h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 40px;
+    letter-spacing: -1px;
+    line-height: 1.1;
+}
+
+.about-text p {
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--clr-dark);
+    line-height: 0.9;
+    margin-bottom: 12px;
+    letter-spacing: -2px;
+}
+
+.stat-label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+/* Animations */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.section-animate {
+    opacity: 0;
+}
+
+.section-animate.active.slide-up {
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.section-animate.active.slide-left {
+    animation: slideLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 /* Features Section */
 .features {
     padding: 100px 0;
     background-color: var(--clr-white);
+}
+
+.features-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 60px;
+    letter-spacing: -1px;
+    line-height: 1.1;
 }
 
 .features-grid {
@@ -200,22 +322,23 @@ body {
 
 /* Cards (Wireframe shows side-by-side flex layout for icon and text inside a gray card) */
 .card {
-    background-color: var(--clr-card-bg);
+    background-color: #f9f8f6;
     padding: 40px 32px;
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    gap: 25px;
     min-height: 200px;
     /* Equalizing heights */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* Adding a subtle top yellow border on hover for polish */
-    border-top: 4px solid transparent;
+    /* Adding a subtle left yellow border on hover for polish */
+    border-left: 4px solid transparent;
 }
 
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    border-top: 4px solid var(--clr-yellow);
+    border-left: 4px solid var(--clr-yellow);
 }
 
 .icon-wrapper {
@@ -227,19 +350,18 @@ body {
     height: 64px;
     border-radius: 50%;
     /* Using dark icon scheme with yellow accents */
-    background-color: var(--clr-white);
-    color: var(--text-dark);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    background-color: rgba(252, 213, 53, 0.15);
+    color: var(--clr-yellow);
 }
 
 /* Wait, wireframe icon is just a gray/black outline. Let's make it dark with yellow stroke! or just dark */
 .icon-wrapper svg {
-    color: var(--clr-dark);
+    color: var(--clr-yellow);
     transition: color 0.3s ease;
 }
 
 .card:hover .icon-wrapper svg {
-    color: var(--clr-yellow);
+    color: var(--clr-dark);
 }
 
 .card-text {
@@ -269,6 +391,28 @@ body {
 
 /* Responsive adjustments */
 @media (max-width: 900px) {
+    .about-container {
+        flex-direction: column;
+        gap: 50px;
+    }
+    
+    .about-left h2 {
+        font-size: 2.5rem;
+    }
+    
+    .about-right {
+        padding-top: 0;
+        gap: 30px;
+    }
+    
+    .stat-number {
+        font-size: 3rem;
+    }
+
+    .features-title {
+        font-size: 2.5rem;
+    }
+
     .features-grid {
         flex-direction: column;
         gap: 50px;
