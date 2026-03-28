@@ -2,18 +2,22 @@
 
 :root {
     /* Color scheme inspired by the second image */
-    --clr-yellow: #fcd535;     /* Bright yellow accent */
+    --clr-yellow: #fcd535;
+    /* Bright yellow accent */
     --clr-yellow-hover: #e8c222;
-    --clr-dark: #111111;       /* Deep black/dark gray for hero */
+    --clr-dark: #111111;
+    /* Deep black/dark gray for hero */
     --clr-darker: #0a0a0a;
-    --clr-white: #ffffff;      
-    --clr-bg-light: #fdfdfd;   /* Main background */
-    --clr-card-bg: #f5f5f5;    /* Light gray for cards to stand out on white */
-    
+    --clr-white: #ffffff;
+    --clr-bg-light: #fdfdfd;
+    /* Main background */
+    --clr-card-bg: #f5f5f5;
+    /* Light gray for cards to stand out on white */
+
     --text-dark: #1f2937;
     --text-light: #ffffff;
     --text-muted: #6b7280;
-    
+
     --font-main: 'Inter', sans-serif;
 }
 
@@ -43,7 +47,8 @@ body {
     background-color: var(--clr-white);
     padding: 24px 0;
     width: 100%;
-    border-bottom: 1px solid #eaeaea; /* Optional slight separation */
+    border-bottom: 1px solid #eaeaea;
+    /* Optional slight separation */
 }
 
 .nav-container {
@@ -74,8 +79,14 @@ body {
     transition: color 0.3s ease;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
     color: var(--clr-yellow-hover);
+}
+
+.mobile-arrow,
+.mobile-socials {
+    display: none;
 }
 
 .mobile-menu-btn {
@@ -130,7 +141,8 @@ body {
 .subtitle {
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--clr-yellow); /* Yellow accent from image 2 */
+    color: var(--clr-yellow);
+    /* Yellow accent from image 2 */
     margin-bottom: 8px;
     letter-spacing: 0.5px;
 }
@@ -182,7 +194,8 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 24px; /* Space between card and bottom text */
+    gap: 24px;
+    /* Space between card and bottom text */
 }
 
 /* Cards (Wireframe shows side-by-side flex layout for icon and text inside a gray card) */
@@ -192,7 +205,8 @@ body {
     display: flex;
     align-items: flex-start;
     gap: 20px;
-    min-height: 200px; /* Equalizing heights */
+    min-height: 200px;
+    /* Equalizing heights */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     /* Adding a subtle top yellow border on hover for polish */
     border-top: 4px solid transparent;
@@ -200,7 +214,7 @@ body {
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     border-top: 4px solid var(--clr-yellow);
 }
 
@@ -215,7 +229,7 @@ body {
     /* Using dark icon scheme with yellow accents */
     background-color: var(--clr-white);
     color: var(--text-dark);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
 }
 
 /* Wait, wireframe icon is just a gray/black outline. Let's make it dark with yellow stroke! or just dark */
@@ -249,7 +263,8 @@ body {
     font-size: 0.95rem;
     color: var(--text-muted);
     line-height: 1.6;
-    padding: 0 10px; /* Slightly inset like the wireframe visually */
+    padding: 0 10px;
+    /* Slightly inset like the wireframe visually */
 }
 
 /* Responsive adjustments */
@@ -258,11 +273,11 @@ body {
         flex-direction: column;
         gap: 50px;
     }
-    
+
     .title {
         font-size: 3rem;
     }
-    
+
     .hero {
         padding: 100px 0;
     }
@@ -272,24 +287,67 @@ body {
     .nav-list {
         display: none;
         flex-direction: column;
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 0;
         left: 0;
-        width: 100%;
+        width: 100vw;
+        height: 100vh;
         background-color: var(--clr-white);
-        padding: 20px;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
-        gap: 20px;
+        padding: 100px 40px 60px 40px;
+        z-index: 998;
     }
-    
+
     .nav-list.active {
         display: flex;
     }
-    
+
+    .nav-link {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: var(--text-dark);
+        border-bottom: 1px solid transparent;
+    }
+
+    .mobile-arrow {
+        display: inline-block;
+        font-size: 2rem;
+        font-weight: 300;
+        color: var(--text-dark);
+    }
+
+    .mobile-socials {
+        margin-top: 150px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .mobile-socials a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 400;
+        transition: color 0.3s ease;
+    }
+
+    .mobile-socials a:hover {
+        color: var(--text-dark);
+    }
+
     .mobile-menu-btn {
         display: flex;
+        position: relative;
+        z-index: 999;
     }
-    
+
+    .logo {
+        position: relative;
+        z-index: 999;
+    }
+
     .title {
         font-size: 2.5rem;
     }

@@ -1,16 +1,19 @@
 // Mobile menu toggle logic
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('load', () => {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navList = document.querySelector('.nav-list');
-    
+
     if (mobileMenuBtn && navList) {
         mobileMenuBtn.addEventListener('click', () => {
             navList.classList.toggle('active');
-            
+
             // Toggle hamburger icon animation
             const isMenuOpen = navList.classList.contains('active');
             mobileMenuBtn.setAttribute('aria-expanded', isMenuOpen);
-            
+
+            // Toggle body scroll lock to prevent scrolling background when menu is open
+            document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+
             const bars = mobileMenuBtn.querySelectorAll('.bar');
             if (isMenuOpen) {
                 if (bars.length === 3) {
@@ -37,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 target.scrollIntoView({
                     behavior: 'smooth'
                 });
-                
+
                 // Close mobile menu on click
                 if (navList && navList.classList.contains('active')) {
                     mobileMenuBtn.click();
