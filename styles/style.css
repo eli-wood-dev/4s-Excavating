@@ -422,6 +422,10 @@ body {
         font-size: 2.5rem;
     }
 
+    .machine-image{
+        width: 80%;
+    }
+
     .about-container {
         flex-direction: column;
         gap: 50px;
@@ -459,6 +463,10 @@ body {
 }
 
 @media (max-width: 768px) {
+    .machine-image{
+        width: 100%;
+    }
+
     .nav-list {
         display: none;
         flex-direction: column;
