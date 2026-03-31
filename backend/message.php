@@ -4,7 +4,7 @@ header('Content-Type: application/json');
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     $json = file_get_contents('php://input');
-    $data = json_decode($json);
+    $data = json_decode($json, true);
 
     if ($data === null || !isset($data["content"]) || !isset($data["email"]) || !isset($data["name"]) || !isset($data["category"])) {
         echo json_encode(["error" => "Invalid JSON data received"]);
