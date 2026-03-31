@@ -12,8 +12,7 @@ try {
         "<db user>",
         "<password>"
     );
-    $connected = true;
 } catch (Exception $e) {
-    // die("ERROR: Couldn't connect. {$e->getMessage()}");
-    $connected = false;
+    http_response_code(500);
+    die("SQL connection error");
 }

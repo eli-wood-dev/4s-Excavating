@@ -179,6 +179,33 @@ body {
     transform: translateY(-2px);
 }
 
+.machines{
+    padding: 50px 0;
+    background-color: var(--clr-bg-light);
+}
+
+.machines h2{
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 40px;
+    letter-spacing: -1px;
+    line-height: 1.1;
+}
+
+.machine-title{
+    font-size: 2rem;
+}
+
+.machine-image{
+    width: 60%;
+    object-fit: contain;
+}
+
+.machine-container{
+    margin-bottom: 50px;
+}
+
 /* About Section */
 .about {
     padding: 100px 0;
@@ -391,6 +418,14 @@ body {
 
 /* Responsive adjustments */
 @media (max-width: 900px) {
+    .machines h2{
+        font-size: 2.5rem;
+    }
+
+    .machine-image{
+        width: 80%;
+    }
+
     .about-container {
         flex-direction: column;
         gap: 50px;
@@ -428,6 +463,10 @@ body {
 }
 
 @media (max-width: 768px) {
+    .machine-image{
+        width: 100%;
+    }
+
     .nav-list {
         display: none;
         flex-direction: column;
