@@ -32,5 +32,6 @@ try {
     echo json_encode($machines);
 } catch (Exception $e) {
     http_response_code(500);
-    die("SQL query error");
+    echo json_encode(['error' => 'SQL query error']);
+    exit;
 }
