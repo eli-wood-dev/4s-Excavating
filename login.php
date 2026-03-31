@@ -7,7 +7,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = trim($_POST["username"] ?? "");
     $password = trim($_POST["password"] ?? "");
 
-    if ($username === ADMIN_USERNAME && $password === ADMIN_PASSWORD) {
+    //for now until it gets put in a db
+    if ($username === ADMIN_USERNAME && password_verify($password, ADMIN_PASSWORD)) {
         $_SESSION["admin_logged_in"] = true;
         $_SESSION["admin_username"] = $username;
         header("Location: admin.php");
