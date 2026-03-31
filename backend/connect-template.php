@@ -14,5 +14,6 @@ try {
     );
 } catch (Exception $e) {
     http_response_code(500);
-    die("SQL connection error");
+    echo json_encode(['error' => 'SQL connection error']);
+    exit;
 }

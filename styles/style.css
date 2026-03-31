@@ -198,6 +198,11 @@ body {
     font-size: 2rem;
 }
 
+.available{
+    font-size: 1.5rem;
+    color: rgb(10, 219, 10);
+}
+
 .machine-image{
     width: 60%;
     object-fit: contain;

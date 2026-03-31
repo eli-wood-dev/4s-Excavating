@@ -1,5 +1,10 @@
 window.addEventListener("load", () => {
     let container = document.querySelector(".machines-container");
+    let placeholder = createMachineTile({
+        image: "images/placeholder.png",
+        name: "Placeholder"
+    }, container);
+    
     fetch("backend/machines.php")
         .then(res => {
             if (res.ok) {
@@ -7,16 +12,13 @@ window.addEventListener("load", () => {
             }
         })
         .then(data => {
-            console.log(data)
+            placeholder.remove();
+
             for (const machine of Object.values(data)) {
                 createMachineTile(machine, container);
             }
         })
         .catch((error) => {
-            createMachineTile({
-                image: "images/placeholder.png",
-                name: "Missing"
-            }, container);
             console.error("Error fetching machines:", error);
         })
 
@@ -47,6 +49,11 @@ window.addEventListener("load", () => {
         image.src = machine.image
         container.appendChild(image)
 
+        const available = document.createElement("h3");
+        available.textContent = "Available";
+        available.classList.add("available")
+        container.appendChild(available)
+
         if (machine.rentals && machine.rentals.length > 0) {
             const rentalContainer = document.createElement("div")
             image.classList.add("machine-rental-container")
@@ -54,10 +61,19 @@ window.addEventListener("load", () => {
 
             const rentalTitle = document.createElement("h3")
             rentalTitle.classList.add("machine-rental-title")
-            rentalTitle.textContent = "In Use"
+            rentalTitle.textContent = "Bookings"
             rentalContainer.appendChild(rentalTitle)
 
             for (const rental of machine.rentals) {
+                let now = new Date();
+                now.setHours(0, 0, 0, 0);
+                let startDate = new Date(rental.startDate);
+                //should not matter but good to check anyway
+                let endDate = new Date(rental.endDate);
+                if(startDate.getTime() < now.getTime() && endDate.getTime() > now.getTime()){
+                    available.remove();
+                }
+
                 const dateContainer = document.createElement("p")
                 dateContainer.classList.add("machine-rental-date-container")
 
@@ -79,5 +95,6 @@ window.addEventListener("load", () => {
 
 
         parent.appendChild(container)
+        return container;
     }
 })
