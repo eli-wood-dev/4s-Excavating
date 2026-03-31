@@ -1,0 +1,1 @@
+//for general purpose code to be used on any page

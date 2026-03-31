@@ -179,6 +179,20 @@ body {
     transform: translateY(-2px);
 }
 
+.machines{
+    padding: 50px 0;
+    background-color: var(--clr-bg-light);
+}
+
+.machines h2{
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 40px;
+    letter-spacing: -1px;
+    line-height: 1.1;
+}
+
 /* About Section */
 .about {
     padding: 100px 0;
@@ -391,6 +405,15 @@ body {
 
 /* Responsive adjustments */
 @media (max-width: 900px) {
+    .machines h2{
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: var(--text-dark);
+        margin-bottom: 40px;
+        letter-spacing: -1px;
+        line-height: 1.1;
+    }
+
     .about-container {
         flex-direction: column;
         gap: 50px;
