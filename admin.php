@@ -6,13 +6,11 @@ require_once "backend/connect.php";
 
 $messages = [];
 
-if ($connected) {
-    $sql = "SELECT id, content, email, name, phone_number, resolved, created_at, resolved_at, category
-            FROM Messages
-            ORDER BY created_at DESC";
-    $stmt = $pdo->query($sql);
-    $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
+$sql = "SELECT id, content, email, name, phone_number, resolved, created_at, resolved_at, category
+        FROM `messages`
+        ORDER BY created_at DESC";
+$stmt = $pdo->query($sql);
+$messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,9 +51,7 @@ if ($connected) {
 
     <h2>Messages</h2>
 
-    <?php if (!$connected): ?>
-        <p>Database connection failed.</p>
-    <?php elseif (count($messages) === 0): ?>
+    <?php if (count($messages) === 0): ?>
         <div class="no-messages">No messages found.</div>
     <?php else: ?>
         <?php foreach ($messages as $message): ?>
