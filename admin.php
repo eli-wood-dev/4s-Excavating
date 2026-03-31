@@ -20,6 +20,7 @@ $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/admin.js" defer></script>
     <script src="js/mobileMenu.js"></script>
+    <script src="js/script.js"></script>
     <link rel="stylesheet" href="styles/style.css">
     <style>
         .message-card {
