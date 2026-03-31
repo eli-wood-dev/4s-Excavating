@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        Name: Group
+        Date: 2026-03-30
+        Description: Admin login page for 4S Excavating Services.
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin login page for 4S Excavating Services.">
+    <title>Admin Login | 4S Excavating Services</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">4S Excavating Services</a>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li>
+                        <a href="index.html" class="nav-link">
+                            <span class="link-text">Home</span>
+                            <span class="mobile-arrow">&rsaquo;</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link">
+                            <span class="link-text">Contact Us</span>
+                            <span class="mobile-arrow">&rsaquo;</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link">
+                            <span class="link-text">Scheduling</span>
+                            <span class="mobile-arrow">&rsaquo;</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="admin-login.html" class="nav-link active">
+                            <span class="link-text">Admin</span>
+                            <span class="mobile-arrow">&rsaquo;</span>
+                        </a>
+                    </li>
+                    <li class="mobile-socials">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">Twitter</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="admin-page">
+        <section class="admin-login-section">
+            <div class="container">
+                <div class="section-tag">
+                    <span class="line"></span> ADMIN ACCESS
+                </div>
+
+                <div class="admin-login-card">
+                    <h1>Admin Login</h1>
+                    <p class="admin-login-text">
+                        Sign in to access the admin dashboard.
+                    </p>
+
+                    <form id="admin-login-form">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Log In</button>
+                    </form>
+
+                    <p id="login-message" class="form-message"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+    <script src="js/admin-login.js"></script>
+</body>
+</html>

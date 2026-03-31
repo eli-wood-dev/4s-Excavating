@@ -496,3 +496,153 @@ body {
         font-size: 2.5rem;
     }
 }
+
+/* Admin Pages */
+.admin-page {
+    background-color: var(--clr-bg-light);
+    min-height: 100vh;
+    padding: 80px 0;
+}
+
+.admin-login-section,
+.admin-dashboard-section {
+    padding: 20px 0 60px 0;
+}
+
+.admin-login-card,
+.admin-search-card,
+.admin-booking-card {
+    background-color: var(--clr-white);
+    border: 1px solid #eaeaea;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.admin-login-card {
+    max-width: 520px;
+    padding: 40px;
+    margin-top: 30px;
+}
+
+.admin-login-card h1,
+.admin-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    letter-spacing: -1px;
+}
+
+.admin-login-text,
+.admin-subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-top: 12px;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+
+.form-group input,
+.admin-search-card input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #dcdcdc;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    color: var(--text-dark);
+    background-color: var(--clr-white);
+}
+
+.form-group input:focus,
+.admin-search-card input:focus {
+    outline: 2px solid rgba(252, 213, 53, 0.35);
+    border-color: var(--clr-yellow);
+}
+
+.form-message {
+    margin-top: 18px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.admin-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.admin-search-card {
+    padding: 20px;
+    margin-bottom: 28px;
+}
+
+.admin-card-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.admin-booking-card {
+    padding: 28px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.admin-booking-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid var(--clr-yellow);
+}
+
+.admin-booking-card h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: var(--text-dark);
+}
+
+.admin-booking-card p {
+    margin-bottom: 10px;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.admin-booking-card strong {
+    color: var(--text-dark);
+}
+
+@media (max-width: 900px) {
+    .admin-card-list {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-top-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .admin-login-card h1,
+    .admin-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-page {
+        padding: 40px 0;
+    }
+
+    .admin-login-card {
+        padding: 28px;
+    }
+}
