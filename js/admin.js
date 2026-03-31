@@ -1,45 +1,61 @@
 /*
     Name: Group
     Date: 2026-03-30
-    Description: JavaScript for the admin dashboard page.
+    Description: JavaScript for the admin dashboard.
 */
 
 /*
-    Purpose: Set up the admin page and check login status.
-    Parameters: None.
+    Purpose: Toggle a message between resolved and unresolved.
+    Parameters: id - the message id.
     Returns: Nothing.
 */
-function start() {
-    let logoutButton;
+async function toggleResolved(id) {
+    let card;
+    let statusText;
+    let button;
+    let response;
+    let result;
 
-    checkLogin();
+    card = document.getElementById("message-" + id);
+    statusText = document.getElementById("status-" + id);
+    button = document.getElementById("button-" + id);
 
-    logoutButton = document.getElementById("logout-button");
+    if (card === null || statusText === null || button === null) {
+        return;
+    }
 
-    if (logoutButton !== null) {
-        logoutButton.addEventListener("click", logout);
+    button.disabled = true;
+
+    try {
+        response = await fetch("backend/toggle_message_resolved.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: "id=" + encodeURIComponent(id)
+        });
+
+        result = await response.json();
+
+        if (!response.ok || result.success !== true) {
+            throw new Error(result.message || "Unable to update message status.");
+        }
+
+        if (Number(result.resolved) === 1) {
+            card.classList.add("resolved");
+            statusText.textContent = "Resolved";
+            button.textContent = "Mark Unresolved";
+        }
+        else {
+            card.classList.remove("resolved");
+            statusText.textContent = "Unresolved";
+            button.textContent = "Mark Resolved";
+        }
+    }
+    catch (error) {
+        window.alert(error.message);
+    }
+    finally {
+        button.disabled = false;
     }
 }
-
-/*
-    Purpose: Check whether the admin is logged in.
-    Parameters: None.
-    Returns: Nothing.
-*/
-function checkLogin() {
-    if (localStorage.getItem("adminLoggedIn") !== "true") {
-        window.location.href = "admin-login.html";
-    }
-}
-
-/*
-    Purpose: Log the admin out and return to the login page.
-    Parameters: None.
-    Returns: Nothing.
-*/
-function logout() {
-    localStorage.removeItem("adminLoggedIn");
-    window.location.href = "admin-login.html";
-}
-
-window.addEventListener("load", start);
