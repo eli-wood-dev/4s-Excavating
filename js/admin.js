@@ -53,7 +53,7 @@ async function toggleResolved(id) {
         }
     }
     catch (error) {
-        window.alert(error.message);
+        console.error(error)
     }
     finally {
         button.disabled = false;
