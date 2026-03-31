@@ -1,14 +1,19 @@
 <?php
 require_once "backend/admin_config.php";
+require_once "backend/connect.php";
 
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $username = trim($_POST["username"] ?? "");
+    $email = trim($_POST["email"] ?? "");
     $password = trim($_POST["password"] ?? "");
 
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE email=? LIMIT 1");
+    $success = $stmt->execute([$email]);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
     //for now until it gets put in a db
-    if ($username === ADMIN_USERNAME && password_verify($password, ADMIN_PASSWORD)) {
+    if ($success && $result && password_verify($password, $result["password"])) {
         $_SESSION["admin_logged_in"] = true;
         $_SESSION["admin_username"] = $username;
         header("Location: admin.php");
@@ -35,8 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <form method="post" action="login.php">
         <div>
-            <label for="username">Username</label><br>
-            <input type="text" id="username" name="username" required>
+            <label for="email">Email</label><br>
+            <input type="text" id="email" name="email" required>
         </div>
         <br>
 
