@@ -1,5 +1,5 @@
 <?php
-include("connect.php");
+require_once("connect.php");
 header('Content-Type: application/json');
 
 try {
@@ -9,7 +9,7 @@ try {
     ON m.id = mr.machine_id 
     WHERE mr.end_date > CURRENT_DATE() 
     ORDER BY m.id");
-    
+
     $success = $stmt->execute();
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
