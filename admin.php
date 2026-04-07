@@ -48,7 +48,7 @@ $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>
     <h1>Admin Dashboard</h1>
     <p>Logged in as <?php echo htmlspecialchars($_SESSION["admin_username"] ?? "admin"); ?></p>
-    <p><a href="logout.php">Log Out</a></p>
+    <p><a href="backend/logout.php">Log Out</a></p>
 
     <h2>Messages</h2>
 

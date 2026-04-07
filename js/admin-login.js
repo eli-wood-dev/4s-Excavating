@@ -31,21 +31,36 @@ function handleLogin(event) {
 
     event.preventDefault();
 
-    username = document.getElementById("username").value;
+    email = document.getElementById("email").value;
     password = document.getElementById("password").value;
     message = document.getElementById("login-message");
 
-    if (username === "admin" && password === "1234") {
-        localStorage.setItem("adminLoggedIn", "true");
+    fetch("backend/login.php", {
+        method: "POST",
+        body: JSON.stringify({
+            "email": email,
+            "password": password
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(res=>{
+        if(res.ok){
+            localStorage.setItem("adminLoggedIn", "true");
+            return res.text()
+        } else{
+            throw new Error("Incorrect username or password.");
+        }
+    })
+    .then(data=>{
+        console.log(data);
         message.textContent = "Login successful. Redirecting...";
-        window.location.href = "admin.html";
-    }
-    else if (username === "" || password === "") {
-        message.textContent = "Please enter both username and password.";
-    }
-    else {
-        message.textContent = "Incorrect username or password.";
-    }
+        window.location.href = "admin.php";
+    })
+    .catch(error=>{
+        message.textContent = error;
+    })
 }
 
 window.addEventListener("load", start);
