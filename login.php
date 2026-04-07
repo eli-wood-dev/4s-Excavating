@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $success = $stmt->execute([$email]);
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($success && $result && $password === $result["password"]) {
+    if ($success && $result && password_verify($password, $result["password"])) {
         $_SESSION["admin_logged_in"] = true;
         $_SESSION["admin_username"] = $result["name"];
         header("Location: admin.php");
