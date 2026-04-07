@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     //for now until it gets put in a db
     if ($success && $result && password_verify($password, $result["password"])) {
         $_SESSION["admin_logged_in"] = true;
-        $_SESSION["admin_username"] = $username;
+        $_SESSION["admin_username"] = $result["name"];
         header("Location: admin.php");
         exit();
     } else {

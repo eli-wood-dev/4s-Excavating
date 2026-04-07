@@ -42,7 +42,7 @@
             <div class="contact-grid">
                 <!-- Left Side: Form -->
                 <div class="contact-form-col">
-                    <form class="contact-form">
+                    <form class="contact-form" id="contact-form">
                         <div class="form-control">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" placeholder="Name" required>
@@ -70,7 +70,7 @@
                                 <div class="select-arrow"></div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">SEND MESSAGE</button>
+                        <button type="submit" class="btn btn-primary" id="submit-btn">SEND MESSAGE</button>
                     </form>
                 </div>
 
@@ -116,6 +116,15 @@
             </div>
         </div>
     </section>
+
+    <!-- Modal -->
+    <div id="status-modal" class="modal">
+        <div class="modal-content slide-left" id="modal-content">
+            <span class="close-btn" id="close-modal-btn">&times;</span>
+            <h2 id="modal-title">Status</h2>
+            <p id="modal-text">Message goes here.</p>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
