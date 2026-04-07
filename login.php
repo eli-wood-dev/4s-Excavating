@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = trim($_POST["email"] ?? "");
     $password = trim($_POST["password"] ?? "");
 
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ? LIMIT 1");
+    $stmt = $pdo->prepare("SELECT * FROM 4susers WHERE email = ? LIMIT 1");
     $success = $stmt->execute([$email]);
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 

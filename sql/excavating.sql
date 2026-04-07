@@ -96,7 +96,7 @@ INSERT INTO `messages` (`id`, `content`, `email`, `name`, `phone_number`, `resol
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE `4susers` (
   `id` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -107,7 +107,7 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `name`, `password`) VALUES
+INSERT INTO `4susers` (`id`, `email`, `name`, `password`) VALUES
 (1, 'admin@example.com', 'admin', '$2y$10$Z2KDRWdPOW6bw7Jy/USy8OUegKiAoJ67XPHnYpPLKOBKVsXmt80wK');
 
 --
@@ -136,7 +136,7 @@ ALTER TABLE `messages`
 --
 -- Indexes for table `users`
 --
-ALTER TABLE `users`
+ALTER TABLE `4susers`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `user_email` (`email`);
 
@@ -165,7 +165,7 @@ ALTER TABLE `messages`
 --
 -- AUTO_INCREMENT for table `users`
 --
-ALTER TABLE `users`
+ALTER TABLE `4susers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
