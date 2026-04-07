@@ -8,14 +8,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = trim($_POST["email"] ?? "");
     $password = trim($_POST["password"] ?? "");
 
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE email=? LIMIT 1");
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ? LIMIT 1");
     $success = $stmt->execute([$email]);
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    //for now until it gets put in a db
-    if ($success && $result && password_verify($password, $result["password"])) {
+    if ($success && $result && $password === $result["password"]) {
         $_SESSION["admin_logged_in"] = true;
-        $_SESSION["admin_username"] = $result["name"];
+        $_SESSION["admin_username"] = $result["username"];
         header("Location: admin.php");
         exit();
     } else {
