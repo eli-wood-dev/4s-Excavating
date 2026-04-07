@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($success && $result && $password === $result["password"]) {
         $_SESSION["admin_logged_in"] = true;
-        $_SESSION["admin_username"] = $result["username"];
+        $_SESSION["admin_username"] = $result["name"];
         header("Location: admin.php");
         exit();
     } else {
@@ -24,12 +24,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>Admin Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
 </head>
+
 <body>
     <h1>Admin Login</h1>
 
@@ -55,4 +57,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <p><a href="index.html">Back to Home</a></p>
 </body>
+
 </html>
