@@ -51,8 +51,8 @@ INSERT INTO `machines` (`id`, `name`, `description`, `image`) VALUES
 CREATE TABLE `machine_rentals` (
   `id` int(11) NOT NULL,
   `machine_id` int(11) NOT NULL,
-  `start_date` date NOT NULL DEFAULT current_timestamp(),
-  `end_date` date NOT NULL DEFAULT current_timestamp()
+  `start_date` date NOT NULL DEFAULT (CURRENT_DATE),
+  `end_date` date NOT NULL DEFAULT (CURRENT_DATE)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
