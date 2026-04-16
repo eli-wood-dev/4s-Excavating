@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Admin Dashboard Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/admin-demo.js" defer></script>
+    <script src="js/mobileMenu.js" defer></script>
+    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">4S Excavating Services</a>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li>
+                        <a href="index.html" class="nav-link">
+                            <span class="link-text">Home</span>
+                            <span class="mobile-arrow">&rsaquo;</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="scheduling.html" class="nav-link">
+                            <span class="link-text">Scheduling</span>
+                            <span class="mobile-arrow">&rsaquo;</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="message.html" class="nav-link">
+                            <span class="link-text">Contact Us</span>
+                            <span class="mobile-arrow">&rsaquo;</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="admin-login.html" class="nav-link active">
+                            <span class="link-text">Admin</span>
+                            <span class="mobile-arrow">&rsaquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="admin-page">
+        <section class="admin-dashboard-section">
+            <div class="container">
+                <div class="section-tag">
+                    <span class="line"></span> ADMIN DASHBOARD DEMO
+                </div>
+
+                <div class="admin-top-row">
+                    <div>
+                        <h1 class="admin-title">Messages</h1>
+                        <p class="admin-subtitle">Logged in as admin</p>
+                    </div>
+
+                    <div class="admin-actions">
+                        <a class="admin-link-btn" href="index.html" onclick="logoutDemo()">Log Out</a>
+                    </div>
+                </div>
+
+                <div class="admin-filter-card">
+                    <h2 class="admin-filter-title">Filter Messages</h2>
+                    <div class="admin-filter-buttons">
+                        <button class="filter-btn active-filter" type="button">All</button>
+                        <button class="filter-btn" type="button">Unresolved</button>
+                        <button class="filter-btn" type="button">Resolved</button>
+                    </div>
+                </div>
+
+                <div class="admin-message-list">
+                    <article class="admin-message-card unresolved-card" id="message-1">
+                        <div class="admin-message-header">
+                            <h2>John Smith</h2>
+                            <span class="status-badge status-unresolved" id="status-1">Unresolved</span>
+                        </div>
+
+                        <p><strong>Email:</strong> john@example.com</p>
+                        <p><strong>Phone:</strong> 555-123-4567</p>
+                        <p><strong>Category:</strong> Machine Rental</p>
+                        <p><strong>Created:</strong> 2026-04-07 11:30:00</p>
+                        <p id="resolved-at-1" class="hidden-resolved-at"><strong>Resolved At:</strong> Not resolved yet</p>
+
+                        <div class="admin-message-body">
+                            <strong>Message:</strong>
+                            <p>I would like to rent an excavator for next weekend. Please contact me with pricing.</p>
+                        </div>
+
+                        <label class="resolve-checkbox-row">
+                            <input type="checkbox" class="resolve-checkbox" id="checkbox-1" onchange="toggleResolvedDemo(1)">
+                            <span>Mark as resolved</span>
+                        </label>
+                    </article>
+
+                    <article class="admin-message-card resolved-card" id="message-2">
+                        <div class="admin-message-header">
+                            <h2>Sarah Lee</h2>
+                            <span class="status-badge status-resolved" id="status-2">Resolved</span>
+                        </div>
+
+                        <p><strong>Email:</strong> sarah@example.com</p>
+                        <p><strong>Phone:</strong> 555-987-6543</p>
+                        <p><strong>Category:</strong> Excavating Service</p>
+                        <p><strong>Created:</strong> 2026-04-06 09:15:00</p>
+                        <p id="resolved-at-2"><strong>Resolved At:</strong> 2026-04-06 13:20:00</p>
+
+                        <div class="admin-message-body">
+                            <strong>Message:</strong>
+                            <p>Looking for a quote for trenching work at our property.</p>
+                        </div>
+
+                        <label class="resolve-checkbox-row">
+                            <input type="checkbox" class="resolve-checkbox" id="checkbox-2" checked onchange="toggleResolvedDemo(2)">
+                            <span>Mark as resolved</span>
+                        </label>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
