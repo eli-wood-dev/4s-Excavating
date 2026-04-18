@@ -13,7 +13,6 @@ try {
     FROM `machines` AS m 
     LEFT JOIN `machine_rentals` AS mr 
     ON m.id = mr.machine_id 
-    WHERE mr.end_date > CURRENT_DATE() 
     ORDER BY m.id");
 
     $success = $stmt->execute();
@@ -34,6 +33,11 @@ try {
         }
 
         if ($entry["start_date"] != null && $entry["end_date"] != null) {
+            $end = new DateTime($entry["end_date"]);
+            $now = new DateTime();
+            if($end < $now){
+                continue;
+            }
             array_push($machines[$id]['rentals'], [
                 'startDate' => $entry["start_date"],
                 'endDate' => $entry["end_date"]
