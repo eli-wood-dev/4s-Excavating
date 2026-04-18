@@ -1,14 +1,13 @@
-/*
-    Name: Group
-    Date: 2026-04-07
-    Description: JavaScript for the admin dashboard.
-*/
+/**
+ * Gurbaz Sogi, Aaryn Gill
+ * 2026-04-07
+ * JavaScript for the admin dashboard.
+ */
 
-/*
-    Purpose: Toggle a message between resolved and unresolved.
-    Parameters: id - the message id.
-    Returns: Nothing.
-*/
+/**
+ * Toggles a message between resolved and unresolved
+ * @param {*} id the message id
+ */
 async function toggleResolved(id) {
     let card;
     let statusText;

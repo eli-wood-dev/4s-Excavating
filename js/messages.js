@@ -1,3 +1,10 @@
+/**
+ * Shreyas Hegde
+ * 2026-04-06
+ * Script for sending messages
+ * handles user input and sends the message to be created to the backend using
+ */
+
 window.addEventListener("load", () => {
     const form = document.getElementById("contact-form");
     const content = document.getElementById("message");
@@ -12,6 +19,11 @@ window.addEventListener("load", () => {
     const modalTitle = document.getElementById("modal-title");
     const modalText = document.getElementById("modal-text");
 
+    /**
+     * Shows a message to the user using DOM elements instead of alert
+     * @param {*} title title of the message
+     * @param {*} msg content of the message
+     */
     function showModal(title, msg) {
         modalTitle.textContent = title;
         modalText.textContent = msg;

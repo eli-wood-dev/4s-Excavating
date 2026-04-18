@@ -1,4 +1,10 @@
 <?php
+/**
+ * Aaryn Gill, Gurbaz Sogi, Eli Wood
+ * 2026-04-07
+ * Handles admin page with message view.
+ */
+
 require_once "backend/admin_config.php";
 requireAdmin();
 

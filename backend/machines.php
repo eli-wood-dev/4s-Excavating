@@ -1,4 +1,10 @@
 <?php
+/**
+ * Eli Wood
+ * 2026-03-30
+ * Handles sending machine information
+ */
+
 require_once("connect.php");
 header('Content-Type: application/json');
 
@@ -14,6 +20,7 @@ try {
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     $machines = [];
+    //links machines to machine rentals for easier usage
     foreach ($data as $entry) {
         $id = $entry["machine_id"];
 

@@ -1,4 +1,10 @@
 <?php
+/**
+ * Aaryn Gill
+ * 2026-04-07
+ * Toggles resolved status of messages but only if the user is an admin
+ */
+
 require_once "admin_config.php";
 require_once "connect.php";
 
@@ -44,4 +50,3 @@ echo json_encode([
     "success" => true,
     "resolved" => $newResolved
 ]);
-?>

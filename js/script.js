@@ -1,4 +1,8 @@
-//for general purpose code to be used on any page
+/**
+ * Shreyas Hegde
+ * 2026-03-30
+ * Script for general purpose code for any page
+ */
 window.addEventListener("load", ()=>{
     // Intersection Observer for Slide-Up Animations
     const observerOptions = {

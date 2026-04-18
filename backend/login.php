@@ -1,4 +1,11 @@
 <?php
+/**
+ * Eli Wood, Aaryn Gill
+ * 2026-04-07
+ * Handles user login with password hashing
+ */
+
+
 require_once "admin_config.php";
 require_once "connect.php";
 
