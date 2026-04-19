@@ -19,6 +19,9 @@ try {
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     $machines = [];
+
+    $now = new DateTime('today');
+
     //links machines to machine rentals for easier usage
     foreach ($data as $entry) {
         $id = $entry["machine_id"];
@@ -34,7 +37,7 @@ try {
 
         if ($entry["start_date"] != null && $entry["end_date"] != null) {
             $end = new DateTime($entry["end_date"]);
-            $now = new DateTime();
+
             if($end < $now){
                 continue;
             }
