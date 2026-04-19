@@ -10,13 +10,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $password = $data["password"];
 
     //should trigger on empty string
-    if(!$email || !$password){
+    if (!$email || !$password) {
         http_response_code(401);
         echo json_encode(['error' => 'Invalid Login']);
         exit;
     }
 
-    $stmt = $pdo->prepare("SELECT * FROM 4susers WHERE email = ? LIMIT 1");
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ? LIMIT 1");
     $success = $stmt->execute([$email]);
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
