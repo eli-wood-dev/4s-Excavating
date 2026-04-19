@@ -1,28 +1,29 @@
 <?php
-/*
-    Description: Configuration file for admin session handling and access control.
-*/
+
+/**
+ * Aaryn Gill
+ * 2026-03-30
+ * Configuration file for admin session handling and access control.
+ */
 
 session_start();
 
-/*
-    Purpose: Check whether an admin user is currently logged in.
-    Parameters: None.
-    Returns: True if the admin is logged in, false otherwise.
-*/
+/**
+ * checks if a user is currently logged in based on the session
+ * @return bool true if the user is currently logged in
+ */
+
 function isAdminLoggedIn() {
     return isset($_SESSION["admin_logged_in"]) && $_SESSION["admin_logged_in"] === true;
 }
 
-/*
-    Purpose: Restrict access to admin-only pages.
-    Parameters: None.
-    Returns: Nothing. Redirects the user to the login page if not logged in.
-*/
+/**
+ * Ensures that the user is logged in, and redirects to the login page if they are not
+ */
+
 function requireAdmin() {
     if (!isAdminLoggedIn()) {
         header("Location: ../login.html");
         exit();
     }
 }
-?>

@@ -1,8 +1,11 @@
-/*
-    Description: General-purpose JavaScript for page animations and navbar login/admin button updates.
-*/
-
-window.addEventListener("load", () => {
+/**
+ * Shreyas Hegde
+ * 2026-03-30
+ * Script for general purpose code for any page
+ * Used primarily for page animations and navbar login/admin button updates
+ */
+window.addEventListener("load", ()=>{
+    // Intersection Observer for Slide-Up Animations
     const observerOptions = {
         root: null,
         rootMargin: "0px",

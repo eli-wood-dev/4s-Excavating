@@ -1,7 +1,10 @@
 <?php
-/*
-    Description: Logs the admin user out by clearing the session and redirecting to the home page.
-*/
+
+/**
+ * Eli Wood, Aaryn Gill
+ * 2026-04-07
+ * Handles user logout and removes session
+ */
 
 require_once "admin_config.php";
 

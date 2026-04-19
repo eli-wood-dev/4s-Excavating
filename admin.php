@@ -1,7 +1,10 @@
 <?php
-/*
-    Description: Admin dashboard page for viewing messages, filtering by status, and marking messages as resolved or unresolved.
-*/
+/**
+ * Aaryn Gill, Gurbaz Sogi, Eli Wood
+ * 2026-04-07
+ * Admin dashboard page for viewing messages, filtering by status, and marking messages as resolved or unresolved.
+ */
+
 require_once "backend/admin_config.php";
 requireAdmin();
 

@@ -1,4 +1,10 @@
 <?php
+/**
+ * Eli Wood
+ * 2026-03-31
+ * Handles user message insertion
+ */
+
 require_once "connect.php";
 header('Content-Type: application/json');
 

@@ -1,7 +1,9 @@
 <?php
-/*
-    Description: Processes admin login requests, verifies credentials, and starts an admin session.
-*/
+/**
+ * Eli Wood, Aaryn Gill
+ * 2026-04-07
+ * Processes admin login requests, verifies credentials, and starts an admin session.
+ */
 
 require_once "admin_config.php";
 require_once "connect.php";
