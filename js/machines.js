@@ -1,5 +1,5 @@
 /**
- * Eli Wood
+ * Eli Wood, Shreyas Hegde
  * 2026-03-31
  * Script for machine page
  * Uses AJAX to get data from the backend and dynamically creates html elements
