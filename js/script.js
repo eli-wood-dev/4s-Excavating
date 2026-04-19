@@ -27,7 +27,7 @@ window.addEventListener("load", ()=>{
 
     const adminNavBtn = document.getElementById("admin-nav-btn");
 
-    if (adminNavBtn !== null && localStorage.getItem("adminLoggedIn") === "true") {
+    if (adminNavBtn !== null && sessionStorage.getItem("adminLoggedIn") === "true") {
         adminNavBtn.textContent = "Admin";
         adminNavBtn.href = "admin.php";
     }

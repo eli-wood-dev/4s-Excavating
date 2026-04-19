@@ -24,6 +24,7 @@ function handleLogin(event) {
     let username;
     let password;
     let message;
+    let email;
 
     event.preventDefault();
 
@@ -43,7 +44,7 @@ function handleLogin(event) {
     })
     .then(res=>{
         if(res.ok){
-            localStorage.setItem("adminLoggedIn", "true");
+            sessionStorage.setItem("adminLoggedIn", "true");
             return res.text()
         } else{
             throw new Error("Incorrect username or password.");
