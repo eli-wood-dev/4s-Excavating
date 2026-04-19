@@ -3,6 +3,9 @@ Gurbaz Sogi
 2026-03-30
 Login page to enter admin mode
 -->
+<?php
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,24 +24,24 @@ Login page to enter admin mode
     <!-- Navbar -->
     <header class="header">
         <div class="container nav-container">
-            <a href="index.html" class="logo">4S Excavating Services</a>
+            <a href="index.php" class="logo">4S Excavating Services</a>
 
             <nav class="nav">
                 <ul class="nav-list">
                     <li>
-                        <a href="index.html" class="nav-link">
+                        <a href="index.php" class="nav-link">
                             <span class="link-text">Home</span>
                             <span class="mobile-arrow">&rsaquo;</span>
                         </a>
                     </li>
                     <li>
-                        <a href="scheduling.html" class="nav-link">
+                        <a href="scheduling.php" class="nav-link">
                             <span class="link-text">Scheduling</span>
                             <span class="mobile-arrow">&rsaquo;</span>
                         </a>
                     </li>
                     <li>
-                        <a href="message.html" class="nav-link">
+                        <a href="message.php" class="nav-link">
                             <span class="link-text">Contact Us</span>
                             <span class="mobile-arrow">&rsaquo;</span>
                         </a>

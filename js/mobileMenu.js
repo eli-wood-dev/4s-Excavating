@@ -44,11 +44,6 @@ window.addEventListener('load', () => {
                 target.scrollIntoView({
                     behavior: 'smooth'
                 });
-
-                // Close mobile menu on click
-                if (navList && navList.classList.contains('active')) {
-                    mobileMenuBtn.click();
-                }
             }
         });
     });

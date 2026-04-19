@@ -3,6 +3,9 @@ Shreyas Hegde
 2026-03-28
 landing page for the site
 -->
+<?php
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,14 +27,18 @@ landing page for the site
             <a href="#" class="logo">4S Excavating Services</a>
             <nav class="nav">
                 <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link active"><span class="link-text">Home</span><span
+                    <li><a href="index.php" class="nav-link active"><span class="link-text">Home</span><span
                                 class="mobile-arrow">&rsaquo;</span></a></li>
-                    <li><a href="scheduling.html" class="nav-link"><span class="link-text">Scheduling</span><span
+                    <li><a href="scheduling.php" class="nav-link"><span class="link-text">Scheduling</span><span
                                 class="mobile-arrow">&rsaquo;</span></a></li>
-                    <li><a href="message.html" class="nav-link"><span class="link-text">Contact Us</span><span
+                    <li><a href="message.php" class="nav-link"><span class="link-text">Contact Us</span><span
                                 class="mobile-arrow">&rsaquo;</span></a></li>
                     <li class="login-item">
-                        <a href="login.html" class="btn btn-primary" id="admin-nav-btn">Login</a>
+                        <?php if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true): ?>
+                            <a href="admin.php" class="btn btn-primary" id="admin-nav-btn">Admin</a>
+                        <?php else: ?>
+                            <a href="login.php" class="btn btn-primary" id="admin-nav-btn">Login</a>
+                        <?php endif; ?>
                     </li>
                     <li class="mobile-socials">
                         <a href="#">Facebook</a>
@@ -54,7 +61,7 @@ landing page for the site
         <div class="container hero-content">
             <h2 class="subtitle">Laying the Groundwork</h2>
             <h1 class="title">For Your Success</h1>
-            <a href="scheduling.html" class="btn btn-primary">GET A MACHINE</a>
+            <a href="scheduling.php" class="btn btn-primary">GET A MACHINE</a>
         </div>
     </section>
 
@@ -188,7 +195,7 @@ landing page for the site
         <div class="container">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <a href="index.html" class="footer-logo">
+                    <a href="index.php" class="footer-logo">
                         4S Excavating
                     </a>
                     <p class="footer-desc">Professional excavation services to mobilize the right people and deliver
@@ -224,9 +231,9 @@ landing page for the site
                     <div class="footer-col">
                         <h4>Company</h4>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="scheduling.html">Scheduling</a></li>
-                            <li><a href="message.html">Contact Us</a></li>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="scheduling.php">Scheduling</a></li>
+                            <li><a href="message.php">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>

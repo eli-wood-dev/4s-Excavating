@@ -24,21 +24,4 @@ window.addEventListener("load", () => {
     document.querySelectorAll(".section-animate").forEach((element) => {
         observer.observe(element);
     });
-
-    // Update navbar button if admin is logged in
-    const adminNavBtn = document.getElementById("admin-nav-btn");
-
-    if (adminNavBtn !== null) {
-        fetch("backend/check_admin_session.php")
-            .then(res => res.json())
-            .then(data => {
-                if (data.loggedIn === true) {
-                    adminNavBtn.textContent = "Admin";
-                    adminNavBtn.href = "admin.php";
-                }
-            })
-            .catch(error => {
-                console.error("Error checking admin session:", error);
-            });
-    }
 });
