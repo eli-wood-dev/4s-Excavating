@@ -2,7 +2,7 @@
 /**
  * Aaryn Gill
  * 2026-04-07
- * Toggles resolved status of messages but only if the user is an admin
+ * Toggles a message between resolved and unresolved and returns the updated status as JSON.
  */
 
 require_once "admin_config.php";
