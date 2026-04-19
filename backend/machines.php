@@ -1,4 +1,10 @@
 <?php
+/**
+ * Eli Wood
+ * 2026-03-30
+ * Handles sending machine information
+ */
+
 require_once("connect.php");
 header('Content-Type: application/json');
 
@@ -7,13 +13,16 @@ try {
     FROM `machines` AS m 
     LEFT JOIN `machine_rentals` AS mr 
     ON m.id = mr.machine_id 
-    WHERE mr.end_date > CURRENT_DATE() 
     ORDER BY m.id");
 
     $success = $stmt->execute();
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     $machines = [];
+
+    $now = new DateTime('today');
+
+    //links machines to machine rentals for easier usage
     foreach ($data as $entry) {
         $id = $entry["machine_id"];
 
@@ -27,6 +36,11 @@ try {
         }
 
         if ($entry["start_date"] != null && $entry["end_date"] != null) {
+            $end = new DateTime($entry["end_date"]);
+
+            if($end < $now){
+                continue;
+            }
             array_push($machines[$id]['rentals'], [
                 'startDate' => $entry["start_date"],
                 'endDate' => $entry["end_date"]

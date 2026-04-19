@@ -1,4 +1,10 @@
 <?php
+/**
+ * Aaryn Gill
+ * 2026-04-07
+ * Toggles a message between resolved and unresolved and returns the updated status as JSON.
+ */
+
 require_once "admin_config.php";
 require_once "connect.php";
 
@@ -44,4 +50,3 @@ echo json_encode([
     "success" => true,
     "resolved" => $newResolved
 ]);
-?>

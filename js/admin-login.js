@@ -1,14 +1,12 @@
-/*
-    Name: Group
-    Date: 2026-03-30
-    Description: JavaScript for the admin login page.
-*/
+/**
+ * Gurbaz Sogi, Eli Wood
+ * 2026-03-30
+ * JavaScript for the admin login page.
+ */
 
-/*
-    Purpose: Set up the login form event listener.
-    Parameters: None.
-    Returns: Nothing.
-*/
+/**
+ * Sets up the login form event listener.
+ */
 function start() {
     let loginForm;
 
@@ -18,12 +16,10 @@ function start() {
         loginForm.addEventListener("submit", handleLogin);
     }
 }
-
-/*
-    Purpose: Check login details and redirect to admin page if correct.
-    Parameters: event - the form submit event.
-    Returns: Nothing.
-*/
+/**
+ * Checks login details and redirects to admin page if correct.
+ * @param {*} event the form submit event
+ */
 function handleLogin(event) {
     let username;
     let password;

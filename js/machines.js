@@ -1,3 +1,10 @@
+/**
+ * Eli Wood
+ * 2026-03-31
+ * Script for machine page
+ * Uses AJAX to get data from the backend and dynamically creates html elements
+ */
+
 window.addEventListener("load", () => {
     let container = document.querySelector(".machines-container");
     let placeholder = createMachineTile({
@@ -22,6 +29,12 @@ window.addEventListener("load", () => {
             console.error("Error fetching machines:", error);
         })
 
+    /**
+     * Creates a tile DOM element based on the machine object and adds it to the parent element
+     * @param {*} machine object which store data about a specific machine
+     * @param {*} parent element to append tile to
+     * @returns container element which is appended to the parent 
+     */
     function createMachineTile(machine, parent) {
         const container = document.createElement("div");
         container.classList.add("equipment-card");

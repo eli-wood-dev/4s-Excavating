@@ -1,4 +1,10 @@
 <?php
+/**
+ * Aaryn Gill, Gurbaz Sogi, Eli Wood
+ * 2026-04-07
+ * Admin dashboard page for viewing messages, filtering by status, and marking messages as resolved or unresolved.
+ */
+
 require_once "backend/admin_config.php";
 requireAdmin();
 
@@ -92,7 +98,7 @@ $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </div>
 
                     <div class="admin-actions">
-                        <a class="admin-link-btn" href="backend/logout.php">Log Out</a>
+                        <a class="admin-link-btn" href="backend/logout.php" onclick="localStorage.removeItem('adminLoggedIn')">Log Out</a>
                     </div>
                 </div>
 

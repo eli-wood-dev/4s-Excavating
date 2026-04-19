@@ -1,4 +1,8 @@
-// Mobile menu toggle logic
+/**
+ * Shreyas Hegde
+ * 2026-03-30
+ * Script for mobile menu, gives navbar funtionality
+ */
 window.addEventListener('load', () => {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navList = document.querySelector('.nav-list');
