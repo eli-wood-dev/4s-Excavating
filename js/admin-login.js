@@ -44,7 +44,6 @@ function handleLogin(event) {
     })
     .then(res=>{
         if(res.ok){
-            sessionStorage.setItem("adminLoggedIn", "true");
             return res.text()
         } else{
             throw new Error("Incorrect username or password.");

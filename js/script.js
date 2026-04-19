@@ -28,7 +28,22 @@ window.addEventListener("load", ()=>{
     const adminNavBtn = document.getElementById("admin-nav-btn");
 
     if (adminNavBtn !== null && sessionStorage.getItem("adminLoggedIn") === "true") {
-        adminNavBtn.textContent = "Admin";
-        adminNavBtn.href = "admin.php";
+        const loginItem = adminNavBtn.closest(".login-item");
+
+        if (loginItem !== null) {
+            loginItem.innerHTML = `
+                <a href="admin.php" class="nav-link active">
+                    <span class="link-text">Admin</span>
+                    <span class="mobile-arrow">&rsaquo;</span>
+                </a>
+            `;
+        }
+
+        document.querySelectorAll(".nav-link").forEach((link) => {
+            if (link.textContent.trim() !== "Admin") {
+                link.classList.remove("active");
+            }
+        });
     }
+
 });

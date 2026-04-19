@@ -43,24 +43,24 @@ $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>
     <header class="header">
         <div class="container nav-container">
-            <a href="index.html" class="logo">4S Excavating Services</a>
+            <a href="index.php" class="logo">4S Excavating Services</a>
 
             <nav class="nav">
                 <ul class="nav-list">
                     <li>
-                        <a href="index.html" class="nav-link">
+                        <a href="index.php" class="nav-link">
                             <span class="link-text">Home</span>
                             <span class="mobile-arrow">&rsaquo;</span>
                         </a>
                     </li>
                     <li>
-                        <a href="scheduling.html" class="nav-link">
+                        <a href="scheduling.php" class="nav-link">
                             <span class="link-text">Scheduling</span>
                             <span class="mobile-arrow">&rsaquo;</span>
                         </a>
                     </li>
                     <li>
-                        <a href="message.html" class="nav-link">
+                        <a href="message.php" class="nav-link">
                             <span class="link-text">Contact Us</span>
                             <span class="mobile-arrow">&rsaquo;</span>
                         </a>
@@ -98,7 +98,7 @@ $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </div>
 
                     <div class="admin-actions">
-                        <a class="admin-link-btn" href="backend/logout.php" onclick="sessionStorage.removeItem('adminLoggedIn')">Log Out</a>
+                        <a class="admin-link-btn" href="backend/logout.php">Log Out</a>
                     </div>
                 </div>
 
@@ -188,7 +188,7 @@ $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="container">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <a href="index.html" class="footer-logo">
+                    <a href="index.php" class="footer-logo">
                         4S Excavating
                     </a>
                     <p class="footer-desc">Professional excavation services to mobilize the right people and deliver
@@ -224,9 +224,9 @@ $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <div class="footer-col">
                         <h4>Company</h4>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="scheduling.html">Scheduling</a></li>
-                            <li><a href="message.html">Contact Us</a></li>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="scheduling.php">Scheduling</a></li>
+                            <li><a href="message.php">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
