@@ -1,5 +1,5 @@
 /**
- * Shreyas Hegde
+ * Shreyas Hegde, Gurbaz Sogi
  * 2026-03-30
  * Script for general purpose code for any page
  * Used primarily for page animations and navbar login/admin button updates

@@ -1,6 +1,6 @@
 <?php
 /**
- * Aaryn Gill
+ * Aaryn Gill, Gurbaz Sogi
  * 2026-04-07
  * Toggles a message between resolved and unresolved and returns the updated status as JSON.
  */

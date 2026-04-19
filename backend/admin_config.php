@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Aaryn Gill
+ * Aaryn Gill, Gurbaz Sogi
  * 2026-03-30
  * Configuration file for admin session handling and access control.
  */

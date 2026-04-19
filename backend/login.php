@@ -1,6 +1,6 @@
 <?php
 /**
- * Eli Wood, Aaryn Gill
+ * Eli Wood, Aaryn Gill, Gurbaz Sogi
  * 2026-04-07
  * Processes admin login requests, verifies credentials, and starts an admin session.
  */
