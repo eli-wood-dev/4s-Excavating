@@ -5,19 +5,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
-    /* Color scheme inspired by the second image */
     --clr-yellow: #fcd535;
-    /* Bright yellow accent */
     --clr-yellow-hover: #e8c222;
     --clr-dark: #111111;
-    /* Deep black/dark gray for hero */
     --clr-darker: #0a0a0a;
     --clr-white: #ffffff;
     --clr-bg-light: #fdfdfd;
-    /* Main background */
     --clr-card-bg: #f5f5f5;
-    /* Light gray for cards to stand out on white */
-
     --text-dark: #1f2937;
     --text-light: #ffffff;
     --text-muted: #6b7280;
@@ -46,13 +40,11 @@ body {
     padding: 0 24px;
 }
 
-/* Navbar exactly like Image 1 (White background, dark text) */
 .header {
     background-color: var(--clr-white);
     padding: 24px 0;
     width: 100%;
     border-bottom: 1px solid #eaeaea;
-    /* Optional slight separation */
 }
 
 .nav-container {
@@ -110,17 +102,14 @@ body {
     transition: 0.3s;
 }
 
-/* Hero Section (Mimicking Image 1 layout, Image 2 dark aesthetics) */
 .hero {
     position: relative;
     padding: 140px 0;
-    /* Sleek dark gradient background instead of image */
     background: linear-gradient(135deg, var(--clr-darker) 0%, #2a2a2a 100%);
     color: var(--text-light);
     text-align: center;
 }
 
-/* Subtle pattern overlay to make it look "blended" and professional */
 .hero::after {
     content: '';
     position: absolute;
@@ -147,7 +136,6 @@ body {
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--clr-yellow);
-    /* Yellow accent from image 2 */
     margin-bottom: 8px;
     letter-spacing: 0.5px;
 }
@@ -204,25 +192,56 @@ body {
     line-height: 1.1;
 }
 
-.machine-title {
-    font-size: 2rem;
+.machines-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
 
-.available {
-    font-size: 1.5rem;
-    color: rgb(10, 219, 10);
+.equipment-card {
+    background-color: var(--clr-white);
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
-.machine-image {
-    width: 60%;
-    object-fit: contain;
+.equipment-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
 }
 
-.machine-container {
-    margin-bottom: 50px;
+.equipment-content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
-/* About Section */
+.equipment-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    text-transform: capitalize;
+}
+
+.equipment-info-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+}
+
+.equipment-info-row svg {
+    color: var(--text-dark);
+}
+
 .about {
     padding: 100px 0;
     background-color: var(--clr-bg-light);
@@ -301,7 +320,6 @@ body {
     color: var(--text-dark);
 }
 
-/* Animations */
 @keyframes slideUp {
     from {
         opacity: 0;
@@ -338,7 +356,6 @@ body {
     animation: slideLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Features Section */
 .features {
     padding: 100px 0;
     background-color: var(--clr-white);
@@ -363,10 +380,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    /* Space between card and bottom text */
 }
 
-/* Cards (Wireframe shows side-by-side flex layout for icon and text inside a gray card) */
 .card {
     background-color: #f9f8f6;
     padding: 40px 32px;
@@ -375,9 +390,7 @@ body {
     align-items: flex-start;
     gap: 25px;
     min-height: 200px;
-    /* Equalizing heights */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* Adding a subtle left yellow border on hover for polish */
     border-left: 4px solid transparent;
 }
 
@@ -395,12 +408,10 @@ body {
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    /* Using dark icon scheme with yellow accents */
     background-color: rgba(252, 213, 53, 0.15);
     color: var(--clr-yellow);
 }
 
-/* Wait, wireframe icon is just a gray/black outline. Let's make it dark with yellow stroke! or just dark */
 .icon-wrapper svg {
     color: var(--clr-yellow);
     transition: color 0.3s ease;
@@ -432,11 +443,13 @@ body {
     color: var(--text-muted);
     line-height: 1.6;
     padding: 0 10px;
-    /* Slightly inset like the wireframe visually */
 }
 
-/* Responsive adjustments */
 @media (max-width: 900px) {
+    .machines-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .machines h2 {
         font-size: 2.5rem;
     }
@@ -482,8 +495,12 @@ body {
 }
 
 @media (max-width: 768px) {
-    .machine-image {
-        width: 100%;
+    .machines-container {
+        grid-template-columns: 1fr;
+    }
+
+    .equipment-image {
+        height: 250px;
     }
 
     .nav-list {
@@ -563,7 +580,6 @@ body {
     }
 }
 
-/* Admin Pages */
 .admin-page {
     background-color: var(--clr-bg-light);
     min-height: 100vh;
@@ -713,10 +729,8 @@ body {
     }
 }
 
-/* Footer Section */
 .footer {
     background-color: #0c0c0c;
-    /* Deep non-glassmorphic black */
     color: #f5f5f5;
     padding: 80px 0 30px 0;
     font-family: var(--font-main);
@@ -747,7 +761,6 @@ body {
 
 .footer-desc {
     color: #a1a1aa;
-    /* Muted gray text similar to the reference */
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 28px;
@@ -828,7 +841,6 @@ body {
     }
 }
 
-/* Contact Page Styling */
 .contact-page {
     background-color: var(--clr-white);
     padding: 80px 0 120px;
@@ -838,7 +850,6 @@ body {
     font-size: 3.5rem;
     font-weight: 800;
     color: #4a4a4a;
-    /* Muted dark gray */
     margin-bottom: 50px;
     letter-spacing: -1px;
 }
@@ -866,7 +877,6 @@ body {
     display: block;
     font-weight: 500;
     color: #666;
-    /* Muted label color */
     margin-bottom: 8px;
     font-size: 0.95rem;
 }
@@ -878,7 +888,6 @@ body {
     padding: 16px;
     border: 1px solid #e5e7eb;
     background-color: #f9fafb;
-    /* Slightly darker cool gray to pop */
     font-family: var(--font-main);
     font-size: 1rem;
     color: var(--text-dark);
@@ -918,7 +927,6 @@ body {
 .contact-form .btn {
     display: block;
     margin-left: auto;
-    /* Push to right */
     margin-top: 24px;
 }
 
@@ -979,7 +987,6 @@ body {
     gap: 16px;
     margin-top: 40px;
     padding-left: 60px;
-    /* Align with text */
 }
 
 .info-socials a {
@@ -1011,7 +1018,6 @@ body {
     }
 }
 
-/* Modal Styling */
 .modal {
     display: none;
     position: fixed;
@@ -1021,7 +1027,6 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(17, 17, 17, 0.5);
-    /* subtle backdrop */
     align-items: center;
     justify-content: center;
 }
@@ -1041,7 +1046,6 @@ body {
     border-left: 4px solid var(--clr-yellow);
 }
 
-/* Let it reuse the slideLeft animation already defined in the CSS */
 .modal-content.slide-left {
     animation: slideLeft 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -1228,4 +1232,3 @@ body {
         align-items: flex-start;
     }
 }
-

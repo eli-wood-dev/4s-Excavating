@@ -15,6 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $data["email"] ?? "";
     $password = $data["password"] ?? "";
 
+    //should trigger on empty string
     if (!$email || !$password) {
         http_response_code(401);
         echo json_encode(["error" => "Invalid Login"]);
@@ -35,4 +36,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo json_encode(["error" => "Invalid Login"]);
     }
 }
-?>
+

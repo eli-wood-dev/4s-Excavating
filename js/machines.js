@@ -11,7 +11,7 @@ window.addEventListener("load", () => {
         image: "images/placeholder.png",
         name: "Placeholder"
     }, container);
-    
+
     fetch("backend/machines.php")
         .then(res => {
             if (res.ok) {
@@ -36,74 +36,56 @@ window.addEventListener("load", () => {
      * @returns container element which is appended to the parent 
      */
     function createMachineTile(machine, parent) {
-        const container = document.createElement("div")
-        container.classList.add("machine-container")
-
-        const name = document.createElement("h3")
-        name.classList.add("machine-title")
-        name.textContent = machine.name
-        container.appendChild(name)
-
-        const description = document.createElement("p")
-        description.classList.add("machine-description")
-        description.textContent = machine.description
-        container.appendChild(description)
+        const container = document.createElement("div");
+        container.classList.add("equipment-card");
 
         if (!machine.image) {
-            machine.image = "images/placeholder.png"
+            machine.image = "images/placeholder.png";
         }
 
-        const image = document.createElement("img")
-        image.classList.add("machine-image")
-        image.src = machine.image
-        container.appendChild(image)
+        const image = document.createElement("img");
+        image.classList.add("equipment-image");
+        image.src = machine.image;
+        container.appendChild(image);
 
-        const available = document.createElement("h3");
-        available.textContent = "Available";
-        available.classList.add("available")
-        container.appendChild(available)
+        const cardContent = document.createElement("div");
+        cardContent.classList.add("equipment-content");
+
+        const name = document.createElement("h3");
+        name.classList.add("equipment-title");
+        name.textContent = machine.name;
+        cardContent.appendChild(name);
+
+        const bookingsContainer = document.createElement("div");
+        bookingsContainer.classList.add("equipment-bookings");
+        bookingsContainer.style.maxHeight = "90px";
+        bookingsContainer.style.overflowY = "auto";
+        bookingsContainer.style.marginBottom = "8px";
 
         if (machine.rentals && machine.rentals.length > 0) {
-            const rentalContainer = document.createElement("div")
-            image.classList.add("machine-rental-container")
-            container.appendChild(rentalContainer)
-
-            const rentalTitle = document.createElement("h3")
-            rentalTitle.classList.add("machine-rental-title")
-            rentalTitle.textContent = "Bookings"
-            rentalContainer.appendChild(rentalTitle)
-
             for (const rental of machine.rentals) {
-                let now = new Date();
-                now.setHours(0, 0, 0, 0);
-                let startDate = new Date(rental.startDate);
-                //should not matter but good to check anyway
-                let endDate = new Date(rental.endDate);
-                if(startDate.getTime() < now.getTime() && endDate.getTime() > now.getTime()){
-                    available.remove();
-                }
+                const startDate = new Date(rental.startDate);
+                const endDate = new Date(rental.endDate);
 
-                const dateContainer = document.createElement("p")
-                dateContainer.classList.add("machine-rental-date-container")
+                const row = document.createElement("div");
+                row.classList.add("equipment-info-row");
 
-                const start = document.createElement("span")
-                start.classList.add("machine-rental-date")
-                start.textContent = rental.startDate
-                dateContainer.appendChild(start)
+                const startStr = startDate.toLocaleDateString();
+                const endStr = endDate.toLocaleDateString();
 
-                dateContainer.appendChild(document.createTextNode(" - "))
-
-                const end = document.createElement("span")
-                end.classList.add("machine-rental-date")
-                end.textContent = rental.endDate
-                dateContainer.appendChild(end)
-
-                rentalContainer.appendChild(dateContainer)
+                row.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; min-width: 16px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <span style="font-size: 0.85em; color: var(--text-muted);">${startStr} &mdash; ${endStr}</span>`;
+                bookingsContainer.appendChild(row);
             }
+        } else {
+            const row = document.createElement("div");
+            row.classList.add("equipment-info-row");
+            row.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; min-width: 16px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <span style="font-size: 0.85em; color: rgb(10, 219, 10); font-weight: 700;">Available Now</span>`;
+            bookingsContainer.appendChild(row);
         }
+        cardContent.appendChild(bookingsContainer);
+        container.appendChild(cardContent);
 
-
-        parent.appendChild(container)
+        parent.appendChild(container);
         return container;
     }
 })
